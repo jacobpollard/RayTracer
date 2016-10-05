@@ -2,6 +2,8 @@
 #define SAMPLER_H
 
 #include "Vector.h"
+#include "Point.h"
+#include "Sample.h"
 
 class Sampler
 {
@@ -12,11 +14,13 @@ public:
 		AVERAGE,
 		OTHER
 	};
-	Sampler(Vector ll, Vector lr, Vector ul, Vector ur, int wPix, int hPix, SampleMode m);
+	Sampler(Point lowLeft, int wPix, int hPix, SampleMode m);
+	bool getSample(Sample* sample);
+	void print();
 private:
-	const Vector lowerLeft, lowerRight, upperLeft, upperRight;
-	const int widthPixels, heightPixels;
-	const SampleMode samplingMode;
+	Point lowerLeft, lowerRight, upperLeft, upperRight;
+	int widthPixels, heightPixels;
+	SampleMode samplingMode;
 
 };
 #endif

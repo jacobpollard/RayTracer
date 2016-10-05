@@ -8,6 +8,7 @@ public:
 	Sample(float xi, float yi);
 	float X() const;
 	float Y() const;
+	void print();
 private:
 	float x, y;
 };
